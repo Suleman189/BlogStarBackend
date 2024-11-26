@@ -1,7 +1,9 @@
 import express from 'express';
 import HomeRoutes from './Routes/Home.js'
+import connectDB from './Configs/db.js';
 import 'dotenv/config'
 
+connectDB();
 const app = express();
 
 // console.log(`Port from env file is ${process.env.PORT}`)
@@ -10,10 +12,10 @@ app.use(express.json())
 app.use('/home', HomeRoutes)
 
 app.get('/', (req, res) => {
-  res.json({message: 'I am awesome'})
+  res.json({ message: 'I am awesome' })
 })
 
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
   console.log(`Started Listening on the server at ${PORT}`)
 })
