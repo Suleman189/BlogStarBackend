@@ -1,9 +1,10 @@
-const express = require("express")
+import express from 'express';
+
 
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send("Hi there I am working")
+  res.json({message: 'I am awesome'})
 })
 
 
