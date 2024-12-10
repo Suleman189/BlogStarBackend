@@ -1,4 +1,4 @@
-import userModel from "./Models/user.model.js";
+// import userModel from "./Models/user.model.js";
 import repl from 'repl';
 import fs from 'fs';
 import path from 'path';
