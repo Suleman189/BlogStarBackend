@@ -41,4 +41,36 @@ const getAllStars = async (req, res) => {
   }
 };
 
-export { createStar, getAllStars };
+const getStar = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Use `_id` for MongoDB's default ID field
+    const star = await Star.findById(id); // Use `findById` for querying by `_id`
+    if (star) {
+      res.status(200).json({ message: 'API Successful', star });
+    } else {
+      res.status(404).json({ message: 'Star not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Could not find Record', error: error.message });
+  }
+};
+
+const updateStar = async (req, res) => {
+  const { id } = req.params
+  const { name, celebrityName, about } = req.body
+
+  try {
+    const star = await Star.findByIdAndUpdate(id, { name, celebrityName, about }, { new: true, runValidators: true })
+    if (!star)
+      return res.status(400).json({ message: 'Star not found' })
+
+    res.status(200).json({ message: 'Star updated successfully', star })
+
+  } catch (error) {
+    res.status(500).json({ message: 'Could not find Record', error: error.message });
+  }
+}
+
+export { createStar, getAllStars, getStar, updateStar };
