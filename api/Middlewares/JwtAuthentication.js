@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 const authenticateJWT = (req, res, next) => {
-  console.log(process.env.AUTHENTICATION)
+  // console.log(process.env.AUTHENTICATION)
   if (!(process.env.AUTHENTICATION == 'true')) return next();
 
   const token = req.headers.authorization?.split(' ')[1];

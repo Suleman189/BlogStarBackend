@@ -1,8 +1,8 @@
 import express from 'express';
-import HomeRoutes from './Routes/Home.js'
-import UserRoutes from './Routes/UserRoutes.js'
-import StarRoutes from './Routes/starRoutes.js'
-import connectDB from './Configs/db.js';
+import HomeRoutes from '../Routes/Home.js'
+import UserRoutes from '../Routes/UserRoutes.js'
+import StarRoutes from '../Routes/starRoutes.js'
+import connectDB from '../Configs/db.js';
 import expressListEndpoints from 'express-list-endpoints';
 import cors from 'cors';
 import 'dotenv/config'
