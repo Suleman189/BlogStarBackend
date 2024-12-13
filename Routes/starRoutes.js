@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', authenticateJWT, getAllStars);
 router.post('/', authenticateJWT, createStar);
-router.get('/:id', getStar)
-router.put('/:id', updateStar)
+router.get('/:id', authenticateJWT, getStar)
+router.put('/:id', authenticateJWT, updateStar)
 
 export default router;
