@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
 
 
 console.log(expressListEndpoints(app))
-app.listen(PORT, () => {
-  console.log(`Started Listening on the server at ${PORT}`)
-})
+// app.listen(PORT, () => {
+//   console.log(`Started Listening on the server at ${PORT}`)
+// })
+
+export default function handler(req,res) {
+  app(req, res)
+}
